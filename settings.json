@@ -1,0 +1,7 @@
+{
+  "galaxy.meteor.com": {
+    "env": {
+      "MONGO_URL": "mongodb://user:JweFUG8wyYLx@ds245218.mlab.com:45218/floma"
+    }
+  }
+}
