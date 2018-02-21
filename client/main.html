@@ -1,0 +1,50 @@
+<head>
+  <title>Floma</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,viewport-fit=cover" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="theme-color" content="#1d2f66">
+  <link href="https://fonts.googleapis.com/css?family=Josefin+Sans:300" rel="stylesheet">
+</head>
+<body>
+<main id="Main">
+  <div class="external-area">
+    <section class="Page Welcome">
+      {{> welcome}}
+    </section>
+  </div>
+  <div class="game-area">
+    {{> rsvpInitial}}
+    {{> game}}
+  </div>
+  <div class="internal-area">
+    <section class="Page Event">
+      <div class="won-game-toast" onclick="this.parentNode.removeChild(this)">
+        Gratuliere, Du hast das Spiel gewonnen! Jetzt alle Details zur Hochzeit.
+      </div>
+      <h1>Get Together</h1>
+    </section>
+    <section class="Page Event">
+      <h1>Trauung</h1>
+    </section>
+    <section class="Page ProductList">
+      <h1>Hochzeitsliste</h1>
+    </section>
+    <section class="Page Event">
+      <h1>Anfahrt</h1>
+    </section>
+    <section class="Page Event">
+      <h1>Hotels</h1>
+    </section>
+    <section class="Page Event">
+      <h1>Kontakt</h1>
+    </section>
+  </div>
+  <div class="decline-area">
+    <section class="Page ProductList">
+      <h1>Hochzeitsliste</h1>
+      <p>Wie schade, dass Du nicht zu unserer Hochzeit kommen kannst. Wenn Du möchtest, kannst Du uns trotzdem etwas von unserer Hochzeitsliste schenken.</p>
+      <p>Falls Du versehentlich abgesagt hast, bitte kontaktiere uns unter flora_schnabl@hotmail.com.</p>
+    </section>
+  </div>
+</main>
+</body>

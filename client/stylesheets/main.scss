@@ -1,0 +1,173 @@
+$mainColor1: #6b8963;
+$mainColor2: #363940;
+$grayColor: #999;
+$highlightColor1: #cabdb4;
+$highlightColor2: #a04a49;
+
+$errorColor: #eb2b36;
+$successColor: #6b8963;
+
+$bgColor: #fff;
+
+html, body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  color: $mainColor2;
+  font-family: 'Josefin Sans', sans-serif;
+  letter-spacing: 2px;
+}
+
+.error {
+  color: $errorColor;
+}
+.success {
+  color: $successColor;
+}
+
+button {
+  background-color: $mainColor1;
+  color: white;
+  border: 0;
+  width: 282px;
+  border-radius: 5px;
+  font-size: inherit;
+  padding: 10px 10px;
+  margin: 10px;
+}
+
+#Main, .Page, .external-area, .internal-area, .game-area, .decline-area {
+  width: 100%;
+  height: 100%;
+}
+
+.external-area, .internal-area, .game-area, .decline-area {
+  position: absolute;
+  left: 0;
+  top: 0;
+  background: white;
+}
+.external-area {
+  z-index: 10;
+}
+.internal-area {
+  z-index: 3;
+  overflow: auto;
+  margin: 0;
+}
+.decline-area {
+  z-index: 0;
+  overflow: auto;
+}
+.game-area {
+  z-index: 5;
+  .Page, #game {
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+  .Page {
+    z-index: 5;
+  }
+  #game {
+    width: 100%;
+    height: 100%;
+    display: none;
+    z-index: 4;
+  }
+}
+
+input {
+  border: 1px solid $highlightColor1;
+  border-radius: 5px;
+  font-size: 20px;
+  font-family: 'Josefin Sans', sans-serif;
+  padding: 8px 15px;
+  text-align: center;
+  min-width: 250px;
+}
+
+.card-wrapper {
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  width: 100%;
+  height: 100%;
+}
+.card {
+  padding: 10px;
+  background: $bgColor;
+  border-radius: 5px;
+  line-height: 250%;
+}
+
+.Page {
+  text-align: center;
+  p {
+    padding: 0 20px;
+  }
+}
+
+.Welcome {
+  background-color: #fff;
+  background-size: cover;
+
+
+  h1, h2 {
+    margin: 0;
+    font-weight: normal;
+  }
+
+  h1 {
+    color: $highlightColor2;
+    padding-top: 10px;
+  }
+  h2 {
+    margin: 1em 0 1.5em 0;
+  }
+}
+
+.Page.RSVP {
+  .card {
+    min-height: 270px;
+  }
+
+  #yes, #yes-initial {
+    background-color: $bgColor;
+    color: $mainColor2;
+    border: 1px solid $mainColor1;
+  }
+  #no, #no-initial {
+    background-color: $bgColor;
+    color: $mainColor2;
+    border: 1px solid $highlightColor2;
+  }
+  #yes.active {
+    background-color: $mainColor1;
+    color: $bgColor;
+  }
+  #no.active {
+    background-color: $highlightColor2;
+    color: $bgColor;
+  }
+  #yes.inactive, #no.inactive {
+    border: 1px solid $grayColor;
+    color: $grayColor;
+  }
+}
+
+.slick-slider .slick-track, .slick-slider .slick-list {
+  height: 100%;
+}
+
+.won-game-toast {
+  position: relative;
+  top: 10px;
+  width: 95%;
+  background: #299640;
+  color: white;
+  padding: 10px;
+  margin: 0 auto;
+  border-radius: 10px;
+}
