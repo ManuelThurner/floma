@@ -21,7 +21,7 @@ Template.product.events({
 		var id = el.attr('data-id');
 		var amount = (Session.get("amount-"+id)||1);
 		Session.set("purchaseSubject", Template.instance().data.subject);
-		Session.get("purchaseAmount", amount);
+		Session.set("purchaseAmount", amount);
 		Session.set("purchasePrice", amount*Template.instance().data.price);
 		//open tooltip
 		$('#purchase').removeClass('u-hidden');

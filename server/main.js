@@ -6,7 +6,8 @@ import braintree from 'braintree';
 
 Meteor.startup(function () {
   gateway = braintree.connect({
-    environment: braintree.Environment.Sandbox,
+    //environment: braintree.Environment.Sandbox,
+    environment: braintree.Environment.Production,
     publicKey: Meteor.settings.BT_PUBLIC_KEY,
     privateKey: Meteor.settings.BT_PRIVATE_KEY,
     merchantId: Meteor.settings.BT_MERCHANT_ID
