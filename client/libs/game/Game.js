@@ -121,7 +121,7 @@ Candy.item = {
 		// add candy to the group
 		game._candyGroup.add(candy);
 	},
-	clickCandy: function(candy){
+	clickCandy: function(candy, pointer){
 		// kill the candy when it's clicked
 		candy.kill();
 		// add points to the score
@@ -130,10 +130,18 @@ Candy.item = {
 		Candy._scoreText.setText(Candy._score);
 
 		//end game
-		if (Candy._score >= 30) {
+		var SCORE_TO_WIN = 30;
+
+		if (window.location.hostname == 'localhost') {
+			SCORE_TO_WIN = 5;
+		}
+
+		if (Candy._score >= SCORE_TO_WIN) {
 			$("#bgmusic")[0].pause();
 			$("#win")[0].play();
-			this.game.paused = true;
+			if (pointer && pointer.game) {
+				pointer.game.paused = true;
+			}
 			$(".game-area").css('display', 'none');
 			$("canvas").remove();
 			Util.updateGuest({has_won_game: true});

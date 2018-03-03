@@ -30,5 +30,14 @@ $.extend(Util, {
 				$(".internal-area").css('display', 'none');
 			}
 		}
+	},
+
+	formatCurrency: function (price) {
+		if (typeof price != "number") {
+			return;
+		}
+		var p =  (price.toFixed(2) + "").replace(".", ",") + " €";
+		p = p.replace(",00", ",–");
+		return p;
 	}
 });

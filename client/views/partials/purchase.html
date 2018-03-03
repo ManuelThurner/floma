@@ -1,0 +1,54 @@
+<template name="purchase">
+  <div id="purchase" class="modal-window u-hidden">
+    <div class="inner-window {{paymentFormStatusClass}}">
+      <span style="float:right">{{formattedPrice}}<br />{{amount}} Stück</span>
+      <h2>{{subject}}</h2>
+
+
+      {{#if isCreditCard}}
+      <h3>Kreditkarte / PayPal</h3>
+        <p>Trage bitte Deine Kreditkartendaten ein oder nutze den Paypal-Login.</p>
+      {{else}}
+        {{#if isWire}}
+        <h3>Überweisung</h3>
+          <p>
+            Wir bitten Dich, den Betrag auf folgendes Konto zu überweisen:<br />
+            <br />
+            Empfänger: Manuel Thurner<br />
+            IBAN: DE17 1203 0000 1007 6800 59<br />
+            BIC: BYLADEM1001<br />
+            Betreff: {{subject}}<br />
+            Betrag: {{formattedPrice}}
+          </p>
+          <p>Herzlichen Dank!</p>
+        {{else}}
+      <h3>Zahlungsmethode wählen</h3>
+          <div style="width: 45%;display:inline-block;text-align:center">
+            <a class="button a-choose-creditcard">Kreditkarte oder PayPal</a>
+          </div>
+          <div style="width: 45%;display:inline-block;text-align:center">
+            <a class="button a-choose-wire">Bank-Überweisung</a>
+          </div>
+        {{/if}}
+      {{/if}}
+      <form id="creditcard-form" style="display:none">
+        <div id="dropin"></div>
+        <button type="submit">Zahlung abschließen</button>
+      </form>
+      <p><a class="a-close button">Schließen</a></p>
+    </div>
+  </div>
+  <div id="purchase-error" class="modal-window u-hidden">
+    <div class="inner-window">
+    <h2>Leider ist ein Fehler aufgetreten</h2>
+    <p>Bitte versuche es später nochmal.</p>
+    <p><a class="a-close-error button">Schließen</a></p>
+    </div>
+  </div>
+  <div id="purchase-completed" class="modal-window u-hidden">
+    <div class="inner-window">
+    <h2>Bezahlung erfolgreich &ndash; herzlichen Dank!</h2>
+    <p><a class="a-close-completed button">Schließen</a></p>
+    </div>
+  </div>
+</template>

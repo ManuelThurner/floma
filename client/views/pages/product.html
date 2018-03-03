@@ -1,0 +1,20 @@
+<template name="product">
+
+  <div class="Card small-card">
+    <span style="float:right">{{formattedPrice}}</span>
+    <h2>{{subject}}</h2>
+    <p>
+      <img src="/img/products/{{id}}.jpg"><br />
+      <div class="form">
+      <select class="a-amount" data-id="{{id}}">
+        {{#each a in amounts}}
+          <option value="{{a}}">{{a}} Stück</option>
+        {{/each}}
+      </select>
+
+      <a class="button a-buy" data-id="{{id}}">Schenken (<span class="amount">{{formattedMultipliedPrice}}</span>)</a>
+    </div>
+      <div class="amount-p">Verfügbar: {{amount}} Stück</div>
+    </p>
+  </div>
+</template>

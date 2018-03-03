@@ -1,0 +1,25 @@
+{
+  "short_name": "FloMa",
+  "name": "FloMa 2018",
+  "theme_color": "#6b8963",
+  "background_color": "#fff",
+  "display": "standalone",
+  "icons": [
+    {
+      "src": "img/icons/icon-1x.png",
+      "type": "image/png",
+      "sizes": "48x48"
+    },
+    {
+      "src": "img/icons/icon-2x.png",
+      "type": "image/png",
+      "sizes": "96x96"
+    },
+    {
+      "src": "img/icons/icon-3x.png",
+      "type": "image/png",
+      "sizes": "144x144"
+    }
+  ],
+  "start_url": "/?utm_source=launcher"
+}

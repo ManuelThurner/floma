@@ -4,6 +4,13 @@
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="theme-color" content="#1d2f66">
   <link href="https://fonts.googleapis.com/css?family=Josefin+Sans:300" rel="stylesheet">
+  <link rel="manifest" href="/manifest.json">
+  <link rel="apple-touch-icon" sizes="144x144" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
 </head>
 <body>
 <main id="Main">
@@ -17,34 +24,57 @@
     {{> game}}
   </div>
   <div class="internal-area">
+    <div class="carousel">
     <section class="Page Event">
-      <div class="won-game-toast" onclick="this.parentNode.removeChild(this)">
-        Gratuliere, Du hast das Spiel gewonnen! Jetzt alle Details zur Hochzeit.
+      <div class="padded">
+      {{> event}}
       </div>
-      <h1>Get Together</h1>
-    </section>
-    <section class="Page Event">
-      <h1>Trauung</h1>
+      <p class="end"></p>
     </section>
     <section class="Page ProductList">
-      <h1>Hochzeitsliste</h1>
+      <div class="padded">
+      {{> products}}
+      </div>
+
+      <p class="end"></p>
     </section>
     <section class="Page Event">
-      <h1>Anfahrt</h1>
+      <div class="padded">
+      {{> hotels}}
+      </div>
+      <p class="end"></p>
     </section>
     <section class="Page Event">
-      <h1>Hotels</h1>
+      <div class="padded">
+      {{> contact}}
+      </div>
+      <p class="end"></p>
     </section>
-    <section class="Page Event">
-      <h1>Kontakt</h1>
-    </section>
+    </div>
+    {{> tabs}}
   </div>
   <div class="decline-area">
     <section class="Page ProductList">
-      <h1>Hochzeitsliste</h1>
       <p>Wie schade, dass Du nicht zu unserer Hochzeit kommen kannst. Wenn Du möchtest, kannst Du uns trotzdem etwas von unserer Hochzeitsliste schenken.</p>
-      <p>Falls Du versehentlich abgesagt hast, bitte kontaktiere uns unter flora_schnabl@hotmail.com.</p>
+      <p>Falls Du versehentlich abgesagt hast, bitte kontaktiere uns unter <a href="mailto:flora_schnabl@hotmail.com">flora_schnabl@hotmail.com</a>.</p>
+
+      {{> products}}
     </section>
   </div>
+
+  {{> purchase}}
 </main>
+
+<!-- script for adding the web app to home screen -->
+<script>
+  if ('serviceWorker' in navigator) {
+    console.log("Will the service worker register?");
+    navigator.serviceWorker.register('service-worker.js')
+        .then(function(reg){
+          console.log("Yes, it did.");
+        }).catch(function(err) {
+          console.log("No it didn't. This happened:", err)
+        });
+  }
+</script>
 </body>

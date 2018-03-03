@@ -1,0 +1,30 @@
+<template name="tabs">
+  <footer class="TabsFooter">
+    <ul class="tabs">
+      <li class="{{#if isCurrentTab '0'}}active{{/if}}">
+        <a class="a-tab-link tab-einladung" data-name="0">
+          <span class="icon"></span>
+          Einladung
+        </a>
+      </li>
+      <li class="{{#if isCurrentTab '1'}}active{{/if}}">
+        <a class="a-tab-link tab-hochzeitsliste" data-name="1">
+          <span class="icon"></span>
+          Geschenkeliste
+        </a>
+      </li>
+      <li class="{{#if isCurrentTab '2'}}active{{/if}}">
+        <a class="a-tab-link tab-unterbringung" data-name="2">
+          <span class="icon"></span>
+          Unterbringung
+        </a>
+      </li>
+      <li class="{{#if isCurrentTab '3'}}active{{/if}}">
+        <a class="a-tab-link tab-kontakt" data-name="3">
+          <span class="icon"></span>
+          Kontakt
+        </a>
+      </li>
+    </ul>
+  </footer>
+</template>

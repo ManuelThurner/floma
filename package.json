@@ -5,6 +5,8 @@
     "start": "meteor run"
   },
   "dependencies": {
+    "braintree": "2.8.0",
+    "braintree-web": "2.32.1",
     "babel-runtime": "^6.26.0",
     "meteor-node-stubs": "^0.3.2"
   }

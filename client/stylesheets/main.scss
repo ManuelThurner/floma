@@ -9,6 +9,10 @@ $successColor: #6b8963;
 
 $bgColor: #fff;
 
+* {
+  -webkit-overflow-scrolling: touch;
+}
+
 html, body {
   width: 100%;
   height: 100%;
@@ -16,7 +20,16 @@ html, body {
   padding: 0;
   color: $mainColor2;
   font-family: 'Josefin Sans', sans-serif;
-  letter-spacing: 2px;
+  letter-spacing: 1px;
+  line-height: 150%;
+}
+
+html {
+  overflow: hidden;
+}
+
+body {
+  overflow: auto;
 }
 
 .error {
@@ -35,6 +48,80 @@ button {
   font-size: inherit;
   padding: 10px 10px;
   margin: 10px;
+
+}
+.button.a-close {
+  margin-top: 2em;
+  background-color: #aaa;
+  display: inline-block;
+  height: 20px;
+}
+
+h1 {
+  margin-top: 0;
+  padding-top: 1em;
+  line-height: 150%;
+}
+h2 {
+  margin-top: 0;
+  line-height: 150%;
+}
+h3 {
+  color: #999;
+  line-height: 150%;
+}
+.Page h1 {
+  color: $mainColor1;
+}
+
+a {
+  color: #0074D9;
+  text-decoration: none;
+}
+
+.Card {
+  margin: 5px auto;
+  max-width: 600px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  padding: 10px 10px 0 10px;
+  line-height: 150%;
+
+  p {
+    margin-top: 2em;
+  }
+
+  h1 {
+    padding-top: 0.5em;
+    color: $mainColor1;
+  }
+}
+.Card.small-card {
+  text-align: left;
+  padding-top: 15px;
+  h2 {
+    margin: 0;
+    font-size: 1.2em;
+  }
+  p {
+    margin-top: 1em;
+    margin-bottom: 5px;
+    padding: 0;
+  }
+}
+
+.Start {
+  font-size: 1.6em;
+  line-height: 150%;
+  margin: 60px 0 50px 0;
+  padding:0;
+  p {
+    padding:0;
+  }
+}
+
+.end {
+  height: 50px;
 }
 
 #Main, .Page, .external-area, .internal-area, .game-area, .decline-area {
@@ -55,6 +142,9 @@ button {
   z-index: 3;
   overflow: auto;
   margin: 0;
+  .carousel {
+    height: 100%;
+  }
 }
 .decline-area {
   z-index: 0;
@@ -103,6 +193,8 @@ input {
 }
 
 .Page {
+  overflow: auto;
+  padding-bottom: 80px;
   text-align: center;
   p {
     padding: 0 20px;
@@ -126,6 +218,20 @@ input {
   h2 {
     margin: 1em 0 1.5em 0;
   }
+}
+
+.padded {
+  padding: 0 10px;
+}
+.button {
+  background: $mainColor1;
+  color: white;
+  padding: 10px;
+  border-radius: 5px;
+  display: inline-block;
+}
+.u-hidden {
+  display: none;
 }
 
 .Page.RSVP {
@@ -165,9 +271,54 @@ input {
   position: relative;
   top: 10px;
   width: 95%;
-  background: #299640;
+  background: $successColor;
   color: white;
-  padding: 10px;
+  padding: 10px 10px 5px 10px;
   margin: 0 auto;
   border-radius: 10px;
+}
+
+.ProductList {
+  img {
+    max-width: 100%;
+    border-radius: 10px;
+  }
+  select {
+    height: 36px;
+  }
+  .form {
+    float: right;
+  }
+  .amount-p {
+    clear: both;
+    padding-top: 10px;
+    text-align: right;
+  }
+}
+
+.modal-window {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: rgba(0,0,0,0.7);
+  width: 100%;
+  height: 100%;
+  z-index: 30;
+  .inner-window {
+    width: 80%;
+    margin: 20px auto;
+    max-width: 500px;
+    background: white;
+    border-radius: 25px;
+    padding: 15px;
+    max-height: 90%;
+    overflow: auto;
+  }
+}
+
+@media (min-width: 600px) {
+  .Card.small-card {
+    width: 295px;
+    display: inline-block;
+  }
 }
