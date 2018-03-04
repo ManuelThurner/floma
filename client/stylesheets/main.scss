@@ -239,11 +239,13 @@ input {
   }
 
   #yes, #yes-initial {
+    width: 240px;
     background-color: $bgColor;
     color: $mainColor2;
     border: 1px solid $mainColor1;
   }
   #no, #no-initial {
+    width: 240px;
     background-color: $bgColor;
     color: $mainColor2;
     border: 1px solid $highlightColor2;
@@ -293,6 +295,20 @@ input {
     padding-top: 10px;
     text-align: right;
   }
+}
+
+.highscore {
+  font-size: 1.4em;
+  width: 100%;
+  margin-bottom: 1.5em;
+  .name {
+    color: $highlightColor2;
+    text-align: center;
+  }
+  .score {
+     color: $mainColor1;
+    text-align: right;
+   }
 }
 
 .modal-window {

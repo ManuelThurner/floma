@@ -37,10 +37,16 @@ Candy.Game.prototype = {
 		Candy.item.spawnCandy(this);
 	},
 	managePause: function(){
+		if (this.game.paused) return;
 		// pause the game
 		this.game.paused = true;
 		// add proper informational text
-		var pausedText = this.add.text(120, 250, "Spiel pausiert.\nBerühre den Bildschirm, um fortzufahren.", this._fontStyle);
+		if (Candy.IS_PORTRAIT_MODE) {
+			var pausedText = this.add.text(50, 250, "Spiel pausiert.\nBerühre den Bildschirm,\n um fortzufahren.", this._fontStyle);
+		} else {
+			var pausedText = this.add.text(120, 250, "Spiel pausiert.\nBerühre den Bildschirm, um fortzufahren.", this._fontStyle);
+		}
+
 		// set event listener for the user's click/tap the screen
 		this.input.onDown.add(function(){
 			// remove the pause text
@@ -50,6 +56,8 @@ Candy.Game.prototype = {
 		}, this);
 	},
 	update: function(){
+		if (Candy.GAME_OVER) return;
+
 		// update timer every frame
 		this._spawnCandyTimer += this.time.elapsed;
 		// if spawn timer reach one second (1000 miliseconds)
@@ -57,6 +65,12 @@ Candy.Game.prototype = {
 			// reset it
 			this._spawnCandyTimer = 0;
 			// and spawn new candy
+			if (Candy._score > 100) {
+				Candy.item.spawnCandy(this);
+			}
+			if (Candy._score > 70) {
+				Candy.item.spawnCandy(this);
+			}
 			Candy.item.spawnCandy(this);
 		}
 		// loop through all candy on the screen
@@ -66,22 +80,33 @@ Candy.Game.prototype = {
 		});
 		// if the health of the player drops to 0, the player dies = game over
 		if(!Candy._health) {
+			CANDY.GAME_OVER = true;
+			if (Candy.IS_ENDLESS) {
+				var g = Util.getGuest();
+				if (!g.score || g.score < Candy._score) {
+					Util.updateGuest({score: Candy._score});
+				}
+			}
+
 			// show the game over message
-			this.add.sprite((Candy.GAME_WIDTH-594)/2, (Candy.GAME_HEIGHT-271)/2, 'game-over');
-			var skipBtn = this.add.button(462, Candy.GAME_HEIGHT-203, 'button-skip', function() {
+			var x = Candy.IS_PORTRAIT_MODE ? 0 : (Candy.GAME_WIDTH-594)/2;
+			this.add.sprite(x, (Candy.GAME_HEIGHT-271)/2, 'game-over');
+			var skipBtn = this.add.button(Candy.IS_PORTRAIT_MODE ? 50 : 462, Candy.GAME_HEIGHT-203, Candy.IS_ENDLESS ? 'button-return' : 'button-skip', function() {
+				$("#bgmusic")[0].pause();
 				$(".game-area").css('display', 'none');
 				$(".won-game-toast").css('display', 'none');
-				$("canvas").remove();
 				this.game.paused = true;
+				Candy.GAME_OVER = false;
 			}.bind(this), this, 1, 0, 2);
 
-			var retryBtn = this.add.button(60, Candy.GAME_HEIGHT-203, 'button-retry', function() {
+			var retryBtn = this.add.button(50, Candy.IS_PORTRAIT_MODE ? Candy.GAME_HEIGHT-303 : Candy.GAME_HEIGHT-203, 'button-retry', function() {
 				// start game
 				this.state.start('Game');
 				skipBtn.destroy();
 				retryBtn.destroy();
 				// unpause the game
 				this.game.paused = false;
+				Candy.GAME_OVER = false;
 			}.bind(this), this, 1, 0, 2);
 
 			// pause the game
@@ -105,6 +130,7 @@ Candy.item = {
 		// play the newly created animation
 		candy.animations.play('anim');
 		// enable candy body for physic engine
+		game.physics.arcade.gravity.y += Math.round((Candy._score||2)/2);
 		game.physics.enable(candy, Phaser.Physics.ARCADE);
 		// enable candy to be clicked/tapped
 		candy.inputEnabled = true;
@@ -136,7 +162,7 @@ Candy.item = {
 			SCORE_TO_WIN = 5;
 		}
 
-		if (Candy._score >= SCORE_TO_WIN) {
+		if (!Candy.IS_ENDLESS && Candy._score >= SCORE_TO_WIN) {
 			$("#bgmusic")[0].pause();
 			$("#win")[0].play();
 			if (pointer && pointer.game) {
@@ -144,7 +170,7 @@ Candy.item = {
 			}
 			$(".game-area").css('display', 'none');
 			$("canvas").remove();
-			Util.updateGuest({has_won_game: true});
+			Util.updateGuest({has_won_game: true, score: SCORE_TO_WIN});
 		} else {
 			$("#coin")[0].play();
 		}

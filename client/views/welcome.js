@@ -43,7 +43,7 @@ Template.welcome.helpers({
 Template.welcome.events({
 	'click #submit': function(event, instance) {
 		var input = $("#code");
-		var code = input.val();
+		var code = input.val().trim().toUpperCase();
 
 		var guest = Guests.findOne({code: code});
 		if (guest) {

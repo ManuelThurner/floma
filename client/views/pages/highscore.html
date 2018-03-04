@@ -1,0 +1,24 @@
+<template name="highscore">
+  <div id="Highscore">
+
+    <div class="Card">
+      <h1>Highscore</h1>
+      <p>Auf den ersten Platz am Tag der Hochzeit wartet eine Überraschung!</p>
+      <table class="highscore">
+        <col width="20%">
+        <col width="50%">
+        <col width="30%">
+      {{#each entry in highscore}}
+        <tr>
+          <td class="place">{{entry.place}}.</td>
+          <td class="name">{{entry.first_name}}</td>
+          <td class="score">{{entry.score}}</td>
+        </tr>
+      {{/each}}
+      </table>
+    </div>
+    <div class="a-replay button">
+      Spiel starten (Endlosmodus)
+    </div>
+  </div>
+</template>

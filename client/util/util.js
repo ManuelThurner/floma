@@ -26,7 +26,6 @@ $.extend(Util, {
 			if (guest.is_attending === true) {
 				if (guest.has_won_game) {
 					$(".game-area").css('display', 'none');
-					$("canvas").remove();
 				} else {
 					$('#rsvpInitial').css('display', 'none');
 					$("#game").css('display', 'block');
