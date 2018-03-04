@@ -1,4 +1,9 @@
 <template name="products">
+  {{#if hasDeclined}}
+    <p>Wie schade, dass Du nicht zu unserer Hochzeit kommen kannst. Wenn Du möchtest, kannst Du uns trotzdem etwas von unserer Hochzeitsliste schenken.</p>
+    <p>Falls Du versehentlich abgesagt hast, bitte kontaktiere uns unter <a href="mailto:flora_schnabl@hotmail.com">flora_schnabl@hotmail.com</a>.</p>
+  {{/if}}
+
   <h1>Geschenkeliste</h1>
   {{> product price=56 subject="Herend Teetasse „Victoria“" id="herend-tasse" amount=8}}
   {{> product price=32 subject="Herend Unterteller „Victoria“" id="herend-teller" amount=8}}

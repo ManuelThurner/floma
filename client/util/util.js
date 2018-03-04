@@ -14,7 +14,13 @@ $.extend(Util, {
 	},
 
 	showAreaBasedOnRsvp: function(guest) {
-		if (guest) {
+		var showListDirectly = (document.location.pathname == "/liste/" || document.location.pathname == '/liste');
+
+		if (showListDirectly) {
+			$(".external-area").css('display', 'none');
+			$(".internal-area").css('display', 'none');
+			$(".game-area").css('display', 'none');
+		} else if (guest) {
 			$(".external-area").css({display: 'none'});
 
 			if (guest.is_attending === true) {
