@@ -22,6 +22,7 @@ Template.highscore.events({
 		$('#rsvpInitial').css('display', 'none');
 		$("#game").css('display', 'block');
 		$(".game-area").css('display', 'block');
+		Candy.GAME_OVER = false;
 		Candy.IS_ENDLESS = true;
 	}
 });

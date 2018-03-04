@@ -80,7 +80,7 @@ Candy.Game.prototype = {
 		});
 		// if the health of the player drops to 0, the player dies = game over
 		if(!Candy._health) {
-			CANDY.GAME_OVER = true;
+			Candy.GAME_OVER = true;
 			if (Candy.IS_ENDLESS) {
 				var g = Util.getGuest();
 				if (!g.score || g.score < Candy._score) {
@@ -93,10 +93,13 @@ Candy.Game.prototype = {
 			this.add.sprite(x, (Candy.GAME_HEIGHT-271)/2, 'game-over');
 			var skipBtn = this.add.button(Candy.IS_PORTRAIT_MODE ? 50 : 462, Candy.GAME_HEIGHT-203, Candy.IS_ENDLESS ? 'button-return' : 'button-skip', function() {
 				$("#bgmusic")[0].pause();
+				$("#game").css('display', 'none');
 				$(".game-area").css('display', 'none');
 				$(".won-game-toast").css('display', 'none');
-				this.game.paused = true;
-				Candy.GAME_OVER = false;
+				this.game.paused = false;
+				this.state.start('Boot');
+				skipBtn.destroy();
+				retryBtn.destroy();
 			}.bind(this), this, 1, 0, 2);
 
 			var retryBtn = this.add.button(50, Candy.IS_PORTRAIT_MODE ? Candy.GAME_HEIGHT-303 : Candy.GAME_HEIGHT-203, 'button-retry', function() {
