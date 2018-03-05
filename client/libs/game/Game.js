@@ -133,7 +133,8 @@ Candy.item = {
 		// play the newly created animation
 		candy.animations.play('anim');
 		// enable candy body for physic engine
-		game.physics.arcade.gravity.y += Math.round((Candy._score||2)/2);
+		var difficultyAdjustment = (Candy._score||2);
+		game.physics.arcade.gravity.y += Math.round(difficultyAdjustment/2);
 		game.physics.enable(candy, Phaser.Physics.ARCADE);
 		// enable candy to be clicked/tapped
 		candy.inputEnabled = true;
@@ -147,6 +148,7 @@ Candy.item = {
 		candy.anchor.setTo(0.5, 0.5);
 		// set the random rotation value
 		candy.rotateMe = (Math.random()*4)-2;
+		candy.body.velocity.setTo(0, difficultyAdjustment*10);
 		// add candy to the group
 		game._candyGroup.add(candy);
 	},
