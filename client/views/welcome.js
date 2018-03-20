@@ -25,7 +25,6 @@ Template.welcome.onRendered(function helloOnCreated() {
 	setTimeout(function() {
 		var storedCode = localStorage.getItem("code");
 		if (storedCode) {
-			alert("stored: "+storedCode);
 			var guest = Guests.findOne({code: storedCode});
 			if (guest) {
 				Session.set("code", storedCode);
@@ -33,7 +32,7 @@ Template.welcome.onRendered(function helloOnCreated() {
 				Util.showAreaBasedOnRsvp(guest);
 			}
 		}
-	}, 1000);
+	}, 2000);
 
 });
 
