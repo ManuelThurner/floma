@@ -10,7 +10,7 @@ Template.highscore.helpers({
 			b.push({
 				place: n,
 				score: g[i].score,
-				first_name: g[i].first_name
+				first_name: g[i].first_name+" "+g[i].last_name[0]+"."
 			});
 			n++;
 		}
