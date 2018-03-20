@@ -30,8 +30,7 @@ Template.welcome.onRendered(function helloOnCreated() {
 			if (guest) {
 				Session.set("code", storedCode);
 				// go to next screen
-				$(".external-area").css('left', '100%');
-				Util.showAreaBasedOnRsvp(Util.getGuest());
+				Util.showAreaBasedOnRsvp(guest);
 			}
 		}
 	}, 1000);

@@ -21,7 +21,7 @@ $.extend(Util, {
 			$(".internal-area").css('display', 'none');
 			$(".game-area").css('display', 'none');
 		} else if (guest) {
-			$(".external-area").css({display: 'none'});
+			$(".external-area").css('display', 'none');
 
 			if (guest.is_attending === true) {
 				if (guest.has_won_game) {
