@@ -3,6 +3,11 @@ Template.contact.helpers({
 		var userAgent = window.navigator.userAgent;
 
 		return (userAgent.match(/iPad/i) || userAgent.match(/iPhone/i));
+	},
+	isAndroid: function () {
+		var userAgent = window.navigator.userAgent;
+
+		return (userAgent.match(/android/i));
 	}
 });
 Template.contact.events({

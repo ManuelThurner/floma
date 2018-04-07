@@ -1,6 +1,6 @@
 <template name="contact">
   <h1>Kontakt</h1>
-  <p>Flora und Manuel Thurner<br />
+  <p>Manuel Thurner &amp; Flora Schnabl<br />
   Belgradstraße 24<br />
   80796 München<br />
   Deutschland</p>
@@ -16,19 +16,24 @@
   </p>
   <p>Flora +43 650 8494319</p>
   <p>Manuel +49 178 1818718</p>
-  <p>Für Notfälle am Tag der Hochzeit:<br />Aglaë +43 650 7273331</p>
+  <p>Für Notfälle am Tag der Hochzeit:<br />Anni +43 0664 4969714‬</p>
   {{#if isOS}}
-  <h1>Als App verwenden</h1>
-  <p>Um FloMa auf Deinem iPhone oder iPad als App zu installieren, klicke in Safari unten auf das mittlere „Teilen“-Zeichen:<br />
-    <br />
-    <img src="/img/bookmark-explanation1.png" style="margin: 0 auto;max-width:90%;" width="300">
+    <h1>Als App verwenden</h1>
+    <p>Um FloMa auf Deinem iPhone oder iPad als App zu installieren, klicke in Safari unten auf das mittlere „Teilen“-Zeichen:<br />
+      <br />
+      <img src="/img/bookmark-explanation1.png" style="margin: 0 auto;max-width:90%;" width="300">
+      </p>
+    <p>
+      Wähle dann „Zum Home-Bildschirm“ und abschließend rechts oben „Hinzufügen“:<br />
+      <br />
+      <img src="/img/bookmark-explanation2.png" style="margin: 0 auto;max-width:90%;" width="300">
     </p>
-  <p>
-    Wähle dann „Zum Home-Bildschirm“ und abschließend rechts oben „Hinzufügen“:<br />
-    <br />
-    <img src="/img/bookmark-explanation2.png" style="margin: 0 auto;max-width:90%;" width="300">
-  </p>
-  <p>Viel Spaß mit der FloMa-App!</p>
+    <p>Viel Spaß mit der FloMa-App!</p>
+  {{/if}}
+  {{#if isAndroid}}
+    <h1>Als App verwenden</h1>
+    <p>Um FloMa auf Deinem Android Phone oder Tablet als App zu installieren, klicke in Chrome rechts oben auf die drei Punkte &#8285;. Wähle in dem Menü „Auf Startbildschirm hinzufügen“ und bestätige mit „Hinzufügen“.</p>
+    <p>Viel Spaß mit der FloMa-App!</p>
   {{/if}}
   <p style="margin-top: 3em"><a class="a-logout">Ausloggen</a></p>
 </template>
