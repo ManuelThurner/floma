@@ -1,14 +1,37 @@
-$mainColor1: #6b8963;
+$mainColor1: #8CBA80;
 $mainColor2: #363940;
-$grayColor: #999;
-$highlightColor1: #cabdb4;
-$highlightColor2: #a04a49;
-$highlightColor3: #032d52;
 
+$grayColor: #999;
+$highlightColor1: #8CBA80;
+$highlightColor2: #6C1D45;
+$highlightColor3: #002855;
+
+
+$linkColor: #0074D9;
 $errorColor: #eb2b36;
-$successColor: #6b8963;
+$successColor: #8CBA80;
+
+//Pantone colors from the invite
+// Green: 005F61
+// Blue: 002855
+// Red: 6C1D45
+// Generated green: 8CBA80
+
 
 $bgColor: #fff;
+
+
+
+@font-face {
+  font-family: 'Avignon';
+  src: url('Avignon.eot');
+  src: url('Avignon.eot?#iefix') format('embedded-opentype'),
+  url('Avignon.woff2') format('woff2'),
+  url('Avignon.woff') format('woff'),
+  url('Avignon.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
 
 *
 {
@@ -38,7 +61,8 @@ html, body {
   margin: 0;
   padding: 0;
   color: $mainColor2;
-  font-family: 'Josefin Sans', sans-serif;
+  font-family: 'Nunito', sans-serif;
+  font-size: 14px;
   letter-spacing: 1px;
   line-height: 150%;
 }
@@ -89,11 +113,15 @@ h3 {
   line-height: 150%;
 }
 .Page h1 {
-  color: $mainColor1;
+  color: $highlightColor3;
+  font-family: 'Avignon';
+  text-transform: uppercase;
+  font-weight: normal;
+  font-style: normal;
 }
 
 a {
-  color: #0074D9;
+  color: $linkColor;
   text-decoration: none;
 }
 
@@ -111,12 +139,11 @@ a {
 
   h1 {
     padding-top: 0.5em;
-    color: $mainColor1;
   }
 }
 .Card.small-card {
   text-align: left;
-  padding-top: 15px;
+  padding-top: 10px;
   h2 {
     margin: 0;
     font-size: 1.2em;
@@ -190,7 +217,7 @@ input {
   border: 1px solid $highlightColor1;
   border-radius: 5px;
   font-size: 20px;
-  font-family: 'Josefin Sans', sans-serif;
+  font-family: 'Nunito', sans-serif;
   padding: 8px 15px;
   text-align: center;
   min-width: 250px;
@@ -230,11 +257,15 @@ input {
   }
 
   h1 {
-    color: $highlightColor2;
     padding-top: 10px;
+    font-family: inherit;
   }
   h2 {
     margin: 1em 0 1.5em 0;
+    font-family: 'Avignon';
+    font-weight: normal;
+    font-style: normal;
+    text-transform: uppercase;
   }
 }
 
