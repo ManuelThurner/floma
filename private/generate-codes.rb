@@ -21,7 +21,7 @@ text.each_line do |line|
 
   codes.push(code)
 
-  query += "    { first_name: '#{names[0]}', last_name: '#{names[1]}', code: '#{code}',  },\n"
+  query += "    { first_name: '#{names[0]}', last_name: '#{names[1]}', code: '#{code}'  },\n"
 end
 
 query += "])"
