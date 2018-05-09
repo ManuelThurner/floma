@@ -177,7 +177,14 @@ Candy.item = {
 			$("canvas").remove();
 			Util.updateGuest({has_won_game: true, score: SCORE_TO_WIN});
 		} else {
-			$("#coin")[0].play();
+			var audio = $("#coin")[0];
+			if (!audio.paused && !audio.ended && audio.currentTime > 0) {
+				//rewind
+				audio.currentTime = 0;
+				audio.play();
+			} else {
+				audio.play();
+			}
 		}
 	},
 	removeCandy: function(candy){
