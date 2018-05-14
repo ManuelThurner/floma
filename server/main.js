@@ -29,24 +29,25 @@ Meteor.methods({
   },
   createTransaction: function (code, data) {
     var transaction = Meteor.wrapAsync(gateway.transaction.sale, gateway.transaction);
-
-
 	  console.log(data);
 
-	  var guest = Guests.findOne({code: code});
-	  console.log(guest);
+	  var guest = null;
+	  if (code) {
+		   guest = Guests.findOne({code: code});
+	  }
+
 
     var response = transaction({
       amount: data.price,
       paymentMethodNonce: data.nonce,
 	  //name: data.subject,
       customer: {
-        firstName: guest.first_name,
-        lastName: guest.last_name
+        firstName: guest ? guest.first_name : "Anonymous",
+        lastName: guest ? guest.last_name : "Donator"
       }
     });
 
-	  if (response.success) {
+	  if (response.success && guest) {
 		  Guests.update(guest._id, {$push: {purchased: {
 			  amount: data.amount,
 			  price: data.price,

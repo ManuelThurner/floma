@@ -30,7 +30,7 @@ function initializeBraintree(clientToken) {
 			data.subject = Session.get("purchaseSubject");
 			data.nonce = nonce;
 
-			Meteor.call('createTransaction', guest.code, data, function (err, result) {
+			Meteor.call('createTransaction', (guest ? guest.code : null), data, function (err, result) {
 				Session.set('paymentFormStatus', null);
 				//Show confirmation
 				if (result.success) {
