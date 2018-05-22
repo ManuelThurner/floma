@@ -25,6 +25,7 @@ function initializeBraintree(clientToken) {
 			// we need to send it to the server, along with any relevant form data
 			// to make a transaction
 			var data = {};
+			data.id = Session.get("purchaseId");
 			data.amount = Session.get("purchaseAmount");
 			data.price = Session.get("purchasePrice");
 			data.subject = Session.get("purchaseSubject");

@@ -67,8 +67,7 @@ Candy.Game.prototype = {
 			// and spawn new candy
 			if (Candy._score > 100) {
 				Candy.item.spawnCandy(this);
-			}
-			if (Candy._score > 70) {
+			} else if (Candy._score > 70 && Math.random() > 0.5) {
 				Candy.item.spawnCandy(this);
 			}
 			Candy.item.spawnCandy(this);

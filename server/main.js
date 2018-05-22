@@ -2,6 +2,7 @@ var gateway;
 
 import { Meteor } from 'meteor/meteor';
 import { Guests } from "../imports/guests.js";
+import { Products } from '../imports/products.js';
 import braintree from 'braintree';
 
 Meteor.startup(function () {
@@ -41,18 +42,31 @@ Meteor.methods({
       amount: data.price,
       paymentMethodNonce: data.nonce,
 	  //name: data.subject,
+	  options: {
+		submitForSettlement: true
+	  },
       customer: {
         firstName: guest ? guest.first_name : "Anonymous",
         lastName: guest ? guest.last_name : "Donator"
       }
-    });
+    });//{success: true};
 
-	  if (response.success && guest) {
-		  Guests.update(guest._id, {$push: {purchased: {
-			  amount: data.amount,
-			  price: data.price,
-			  subject: data.subject
-		  }}});
+	  if (response.success) {
+	  	  if (guest) {
+				Guests.update(guest._id, {$push: {purchased: {
+							id: data.id,
+							amount: data.amount,
+							price: data.price,
+							subject: data.subject
+						}}});
+		  }
+
+		  var p = Products.findOne({id: data.id});
+		  if (p) {
+			  Products.update(p._id, {$set: {amount_bought: p.amount_bought+data.amount}});
+		  } else {
+			  Products.insert({id: data.id, amount_bought: data.amount});
+		  }
 	  }
 
     return response;
