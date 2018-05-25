@@ -66,9 +66,13 @@ Candy.Game.prototype = {
 			this._spawnCandyTimer = 0;
 			// and spawn new candy
 			if (Candy._score > 100) {
-				Candy.item.spawnCandy(this);
+				setTimeout(function() {
+					Candy.item.spawnCandy(this);
+				}.bind(this), 150);
 			} else if (Candy._score > 70 && Math.random() > 0.5) {
-				Candy.item.spawnCandy(this);
+				setTimeout(function() {
+					Candy.item.spawnCandy(this);
+				}.bind(this), 350);
 			}
 			Candy.item.spawnCandy(this);
 		}
@@ -78,7 +82,7 @@ Candy.Game.prototype = {
 			candy.angle += candy.rotateMe;
 		});
 		// if the health of the player drops to 0, the player dies = game over
-		if(!Candy._health) {
+		if(Candy._health <= 0) {
 			Candy.GAME_OVER = true;
 			if (Candy.IS_ENDLESS) {
 				var g = Util.getGuest();
@@ -190,7 +194,7 @@ Candy.item = {
 		// kill the candy
 		candy.kill();
 		// decrease player's health
-		Candy._health -= 10;
+		Candy._health = 0;
 		$("#gameover")[0].play();
 	}
 };
