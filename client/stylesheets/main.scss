@@ -1,394 +1,73 @@
-$mainColor1: #8CBA80;
-$mainColor2: #363940;
+$mainColor: #222;
 
 $grayColor: #999;
 $highlightColor1: #8CBA80;
-$highlightColor2: #6C1D45;
-$highlightColor3: #6C1D45;
-
-
-$linkColor: #0074D9;
-$errorColor: #eb2b36;
-$successColor: #8CBA80;
-
-//Pantone colors from the invite
-// Green: 005F61
-// Blue: 002855
-// Red: 6C1D45
-// Generated green: 8CBA80
-
+$highlightColor2: #006400;
 
 $bgColor: #fff;
 
-
-
-@font-face {
-  font-family: 'Avignon';
-  src: url('Avignon.eot');
-  src: url('Avignon.eot?#iefix') format('embedded-opentype'),
-  url('Avignon.woff2') format('woff2'),
-  url('Avignon.woff') format('woff'),
-  url('Avignon.ttf') format('truetype');
-  font-weight: normal;
-  font-style: normal;
+@page {
+  size: 120mm 120mm;
+  margin: 0;
 }
-
-*
-{
-  -webkit-overflow-scrolling: touch;
-  -webkit-user-select: none;
-  -khtml-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-}
-*, a, input {
-  -webkit-tap-highlight-color: rgba(0,0,0,0);
-  -webkit-tap-highlight-color: transparent; /* For some Androids */
-}
-
-input, textarea {
-  -webkit-user-select: auto !important;
-  -khtml-user-select: auto !important;
-  -moz-user-select: auto !important;
-  -ms-user-select: auto !important;
-  user-select: auto !important;
+@media print {
+  html, body {
+    width: 120mm;
+    height: 120mm;
+  }
 }
 
 html, body {
-  width: 100%;
-  height: 100%;
   margin: 0;
   padding: 0;
-  color: $mainColor2;
-  font-family: 'Nunito', sans-serif;
-  font-size: 14px;
+  color: #222;
+  font-family: 'Times New Roman', serif;
+  font-size: 12px;
   letter-spacing: 1px;
   line-height: 150%;
 }
 
-html {
-  overflow: hidden;
-}
-
-body {
-  overflow: auto;
-}
-
-.error {
-  color: $errorColor;
-}
-.success {
-  color: $successColor;
-}
-
-button {
-  background-color: $mainColor1;
-  color: white;
-  border: 0;
-  border-radius: 5px;
-  font-size: inherit;
-  padding: 10px 10px;
-  margin: 10px;
-
-}
-.button.a-close {
-  margin-top: 2em;
-  background-color: #aaa;
-  display: inline-block;
-  height: 20px;
-}
-
-h1 {
-  margin-top: 0;
-  padding-top: 1em;
-  line-height: 150%;
-}
-h2 {
-  margin-top: 0;
-  line-height: 150%;
-}
-h3 {
-  color: #999;
-  line-height: 150%;
-}
-.Page h1 {
-  color: $highlightColor3;
-  font-family: 'Avignon';
-  text-transform: uppercase;
+h1,h2 {
+  color: $highlightColor2;
+  font-family: 'Times New Roman';
   font-weight: normal;
   font-style: normal;
+  font-size: 1em;
+}
+.highlight {
+  color: $highlightColor2;
+  font-family: 'Times New Roman', sans-serif;
 }
 
-a {
-  color: $linkColor;
-  text-decoration: none;
+#Main {
+
 }
 
-.Card {
-  margin: 5px auto;
-  max-width: 600px;
-  border: 1px solid #ccc;
-  border-radius: 10px;
-  padding: 10px 10px 0 10px;
-  line-height: 150%;
-
-  p {
-    margin-top: 2em;
-  }
-
-  h1 {
-    padding-top: 0.5em;
-  }
-}
-.Card.small-card {
-  text-align: left;
-  padding-top: 10px;
-  h2 {
-    margin: 0;
-    font-size: 1.1em;
-  }
-  p {
-    margin-top: 1em;
-    margin-bottom: 5px;
-    padding: 0;
-  }
-}
-.Card.isSold {
-  -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
-  filter: grayscale(100%);
+img.song {
+  max-width: 80%;
+  margin: auto;
+  display: block;
 }
 
-.Start {
-  font-size: 1.6em;
-  line-height: 150%;
-  margin: 60px 0 50px 0;
-  padding:0;
-  p {
-    padding:0;
-  }
-}
+.page {
+  page-break-after: always;
+  margin: 1cm 0.75cm;
 
-.end {
-  height: 50px;
 }
-
-#Main, .Page, .external-area, .internal-area, .game-area, .decline-area {
-  width: 100%;
-  height: 100%;
-}
-
-.external-area, .internal-area, .game-area, .decline-area {
-  position: absolute;
-  left: 0;
-  top: 0;
-  background: white;
-}
-.external-area {
-  z-index: 10;
-}
-.internal-area {
-  z-index: 3;
-  overflow: auto;
-  margin: 0;
-  .carousel {
-    height: 100%;
-  }
-}
-.decline-area {
-  z-index: 0;
-  overflow: auto;
-}
-.game-area {
-  z-index: 5;
-  .Page, #game {
-    position: absolute;
-    top: 0;
-    left: 0;
-  }
-  .Page {
-    z-index: 5;
-  }
-  #game {
-    width: 100%;
-    height: 100%;
-    display: none;
-    z-index: 4;
-  }
-}
-
-input {
-  border: 1px solid $highlightColor1;
-  border-radius: 5px;
-  font-size: 16px;
-  font-family: 'Nunito', sans-serif;
-  padding: 8px 10px;
+.page1 {
   text-align: center;
-  min-width: 220px;
-}
-
-.card-wrapper {
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  width: 100%;
-  height: 100%;
-}
-.card {
-  padding: 10px;
-  background: $bgColor;
-  border-radius: 5px;
-  line-height: 250%;
-}
-
-.Page {
-  overflow: auto;
-  padding-bottom: 80px;
-  text-align: center;
-  p {
-    padding: 0 20px;
-  }
-}
-
-.Welcome {
-  background-color: #fff;
-  background-size: cover;
-
-
-  h1, h2 {
-    margin: 0;
-    font-weight: normal;
-  }
-
-  h1 {
-    padding-top: 10px;
-    font-family: inherit;
-  }
-  h2 {
-    margin: 1em 0 1.5em 0;
-    font-family: 'Avignon';
-    font-weight: normal;
-    font-style: normal;
-    text-transform: uppercase;
-  }
-}
-
-.padded {
-  padding: 0 10px;
-}
-.button {
-  background: $mainColor1;
-  color: white;
-  padding: 10px;
-  border-radius: 5px;
-  display: inline-block;
-}
-.u-hidden {
-  display: none;
-}
-
-.Page.RSVP {
-  .card {
-    min-height: 270px;
-  }
-
-  #yes, #yes-initial {
-    width: 240px;
-    background-color: $bgColor;
-    color: $mainColor2;
-    border: 1px solid $mainColor1;
-  }
-  #no, #no-initial {
-    width: 240px;
-    background-color: $bgColor;
-    color: $mainColor2;
-    border: 1px solid $highlightColor2;
-  }
-  #yes.active {
-    background-color: $mainColor1;
-    color: $bgColor;
-  }
-  #no.active {
-    background-color: $highlightColor2;
-    color: $bgColor;
-  }
-  #yes.inactive, #no.inactive {
-    border: 1px solid $grayColor;
-    color: $grayColor;
-  }
-}
-
-.slick-slider .slick-track, .slick-slider .slick-list {
-  height: 100%;
-}
-
-.won-game-toast {
-  position: relative;
-  top: 10px;
-  width: 95%;
-  background: $successColor;
-  color: white;
-  padding: 10px 10px 5px 10px;
-  margin: 0 auto;
-  border-radius: 10px;
-}
-
-.ProductList {
+  margin-top: 1.5cm;
   img {
     max-width: 100%;
-    border-radius: 10px;
-  }
-  select {
-    height: 36px;
-  }
-  .form {
-    float: right;
-  }
-  .amount-p {
-    clear: both;
-    padding-top: 10px;
-    text-align: right;
   }
 }
-
-.highscore {
-  font-size: 1.4em;
-  width: 100%;
-  margin-bottom: 1.5em;
-  .name {
-    color: $highlightColor2;
-    text-align: center;
-  }
-  .score {
-     color: $mainColor1;
-    text-align: right;
-   }
+h2 {
+  font-size: 1em;
+  margin-top: 2em;
 }
-
-
-.modal-window {
-  position: absolute;
-  top: 0;
-  left: 0;
-  background: rgba(0,0,0,0.7);
-  width: 100%;
-  height: 100%;
-  z-index: 30;
-  .inner-window {
-    width: 80%;
-    margin: 20px auto;
-    max-width: 500px;
-    background: white;
-    border-radius: 25px;
-    padding: 15px;
-    max-height: 90%;
-    overflow: auto;
-  }
-}
-
-@media (min-width: 600px) {
-  .Card.small-card {
-    width: 295px;
-    display: inline-block;
-  }
+h3 {
+  font-size: 12px;
+  font-weight: normal;
+  text-decoration: underline;
+  font-style: normal;
 }

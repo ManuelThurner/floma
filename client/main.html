@@ -3,7 +3,7 @@
   <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,viewport-fit=cover" />
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="theme-color" content="#1d2f66">
-  <link href="https://fonts.googleapis.com/css?family=Nunito:200" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Nunito:300" rel="stylesheet">
   <link rel="manifest" href="/manifest.json">
   <link rel="apple-touch-icon" sizes="144x144" href="/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -14,70 +14,83 @@
 </head>
 <body>
 <main id="Main">
-  <div class="external-area">
-    <section class="Page Welcome">
-      {{> welcome}}
-    </section>
-  </div>
-  <div class="game-area">
-    {{> rsvpInitial}}
-    {{> game}}
-  </div>
-  <div class="internal-area">
-    <div class="carousel">
-    <section class="Page Event">
-      <div class="padded">
-      {{> event}}
-      </div>
-      <p class="end"></p>
-    </section>
-    <section class="Page ProductList">
-      <div class="padded">
-      {{> products}}
-      </div>
+  <section class="page page1">
+    <p><img src="/img/thea.jpg"></p>
+  </section>
+  <section class="page">
+    <h2>Einzug</h2>
+    <h2>Eröffnungslied &bdquo;Ins Wasser fällt ein Stein&ldquo;</h2>
+    <p>
+      <img src="/img/ins-wasser.jpg" class="song">
+    </p>
+  </section>
+  <section class="page">
+    <p>
+    2. Ein Funke, kaum zu seh’n, entfacht doch helle Flammen;<br />
+        und die im Dunkeln steh’n, die ruft der Schein zusammen.<br />
+        Wo Gottes große Liebe in einem Menschen brennt,<br />
+        da wird die Welt vom Licht erhellt; da bleibt nichts, was uns trennt.
+    </p>
+      <p>
+        3. Nimm Gottes Liebe an. Du brauchst dich nicht allein zu müh’n,<br />
+        denn seine Liebe kann in deinem Leben Kreise zieh’n.<br />
+        Und füllt sie erst dein Leben, und setzt sie dich in Brand,<br />
+        gehst du hinaus, teilst Liebe aus, denn Gott füllt dir die Hand.
+  </p>
+    <h2>Evangelium</h2>
+    <h2>Predigt</h2>
 
-      <p class="end"></p>
-    </section>
-    <section class="Page Event">
-      <div class="padded">
-      {{> hotels}}
-      </div>
-      <p class="end"></p>
-    </section>
-    <section class="Page Event">
-      <div class="padded">
-      {{> contact}}
-      </div>
-      <p class="end"></p>
-    </section>
-      <section class="Page Event">
-        <div class="padded">
-          {{> highscore}}
-        </div>
-        <p class="end"></p>
-      </section>
-    </div>
-    {{> tabs}}
-  </div>
-  <div class="decline-area">
-    <section class="Page ProductList">
-      {{> products}}
-    </section>
-  </div>
+  </section>
+  <section class="page">
+      <h2>Lied &bdquo;Meine Hoffnung und meine Freude&ldquo;</h2>
+      <p>
+          <img src="/img/meine-hoffnung.png" class="song">
+      </p>
+  </section>
+  <section class="page">
+      <h2>Fürbitten</h2>
+      <h2>Glaubensbekenntnis</h2>
+    <h2>Taufe</h2>
+    <h2>Lied &bdquo;Thea wird getauft&ldquo;</h2>
+    <p>
+      <img src="/img/thea-wird-get.png" class="song">
+    </p>
+    <h2>Salbung</h2>
+    <h2>Vater unser</h2>
+    <h2>Segensgebete</h2>
+  </section>
+  <section class="page">
 
-  {{> purchase}}
+    <h2>Schlusslied &bdquo;Geh aus, mein Herz, und suche Freud&ldquo;</h2>
+    <p>
+      <img src="/img/geh-aus.png" class="song">
+    </p>
+  </section>
+    <section class="page">
+      <p>2. Die Bäume stehen voller Laub,<br />
+          das Erdreich decket seinen Staub<br />
+          mit einem grünen Kleide;<br />
+          Narzissus und die Tulipan,<br />
+          die ziehen sich viel schöner an<br />
+          als Salomonis Seide,<br />
+          als Salomonis Seide.
+      </p>
+      <p>3. Mach in mir deinem Geiste Raum,<br />
+          daß ich dir werd ein guter Baum,<br />
+          und laß mich Wurzel treiben.<br />
+          Verleihe, daß zu deinem Ruhm<br />
+          ich deines Gartens schöne Blum<br />
+          und Pflanze möge bleiben,<br />
+          und Pflanze möge bleiben.
+      </p>
+  </section>
+
+  <section class="page" style="text-align:center;margin-top: 4cm">
+    <h2>Herzlich danken wir</h2>
+    <p>
+      Hans-Peter Premur
+    </p>
+    <p>den Taufpaten Louise und Nikolaus</p>
+  </section>
 </main>
-
-<!-- script for adding the web app to home screen -->
-<script>
-  if ('serviceWorker' in navigator) {
-    console.log("Will the service worker register?");
-    navigator.serviceWorker.register('service-worker.js')
-        .then(function(reg){
-          console.log("Yes, it did.");
-        }).catch(function(err) {
-          console.log("No it didn't. This happened:", err)
-        });
-  }
-</script>
 </body>
